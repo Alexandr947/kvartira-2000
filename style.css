@@ -1,0 +1,821 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Variable.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+}
+
+:root {
+    --color-page: #f6f8f9;
+    --color-card: #fff;
+    --color-text: #232323;
+    --color-secondary: #4f4f4f;
+    --color-muted: #6b7375;
+    --color-pending: #8c9194;
+    --color-brand: #2898a4;
+    --color-success: #1f9e59;
+    --color-warning: #f29c1f;
+    --color-border: #dbe3e5;
+    --color-divider: #e5ebed;
+    --color-focus: #125e68;
+    --section-gap: 24px;
+    --card-radius: 10px;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 24px;
+}
+
+body {
+    background: var(--color-page);
+    color: var(--color-text);
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.36;
+}
+
+button {
+    padding: 0;
+    color: inherit;
+}
+
+a, button {
+    -webkit-tap-highlight-color: rgba(40, 152, 164, 0.16);
+}
+
+a:focus, button:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+}
+
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+[id] {
+    scroll-margin-top: 24px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding-inline: 16px;
+    margin: 0 auto;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 16px;
+    z-index: 30;
+    padding: 12px 16px;
+    transform: translateY(-160%);
+    border-radius: 4px;
+    background: var(--color-card);
+    color: var(--color-focus);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Шапка и навигация */
+.site-header {
+    background: var(--color-card);
+}
+
+.site-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 120px;
+    padding-block: 26px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.brand__logo {
+    flex: 0 0 52px;
+}
+
+.brand__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.brand__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.brand__description {
+    color: var(--color-secondary);
+    font-size: 12px;
+}
+
+.site-header__contacts {
+    flex-shrink: 0;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: right;
+}
+
+.account-nav {
+    background: var(--color-brand);
+    color: #fff;
+}
+
+.account-nav__container, .account-nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.account-nav__container {
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+}
+
+.account-nav__list {
+    gap: 4px;
+}
+
+.account-nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 58px;
+    padding: 17px 28px 19px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.account-nav__link--active {
+    background: rgba(255, 255, 255, 0.18);
+    font-weight: 600;
+}
+
+.account-nav__logout {
+    min-height: 44px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 14px;
+}
+
+.account-nav a:focus, .account-nav button:focus {
+    outline-color: #fff;
+    outline-offset: -4px;
+}
+
+/* Заголовок, уведомление и этапы бронирования */
+.booking {
+    padding-block: 36px 48px;
+}
+
+.booking__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+}
+
+.booking__header {
+    background: var(--color-card);
+}
+
+.booking__title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.booking__description {
+    margin-top: 5px;
+    color: var(--color-secondary);
+    font-size: 14px;
+}
+
+.booking-notice {
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    padding: 16px 20px;
+    border: 1px solid rgba(235, 69, 29, 0.28);
+    border-radius: 8px;
+    background: rgba(235, 69, 29, 0.08);
+    color: #913314;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.booking-progress, .booking-details, .payment-summary, .manager-card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    background: var(--color-card);
+}
+
+.booking-progress {
+    min-height: 154px;
+    padding: 20px 24px;
+}
+
+.booking-progress__title, .check-in__title, .manager-card__title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.booking-progress__list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 68px;
+    margin-top: 14px;
+}
+
+.booking-progress__step {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    min-height: 60px;
+}
+
+.booking-progress__number {
+    display: flex;
+    flex: 0 0 30px;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    border-radius: 50%;
+    background: #e8edf0;
+    color: var(--color-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.booking-progress__copy {
+    min-width: 0;
+}
+
+.booking-progress__name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.booking-progress__status {
+    margin-top: 3px;
+    color: var(--color-pending);
+    font-size: 13px;
+}
+
+.booking-progress__step--completed .booking-progress__number {
+    background: var(--color-success);
+    color: #fff;
+}
+
+.booking-progress__step--completed .booking-progress__status {
+    color: var(--color-success);
+}
+
+/* Grid сохраняет порядок HTML при разном расположении карточек в макетах. */
+.booking__cards {
+    display: grid;
+    grid-template-columns: minmax(0, 820fr) minmax(0, 416fr);
+    grid-template-areas:
+        "details payment"
+        "details manager"
+        "check-in .";
+    gap: var(--section-gap);
+    align-items: start;
+    background: var(--color-card);
+}
+
+.booking__cards > section {
+    min-width: 0;
+}
+
+.booking-details {
+    grid-area: details;
+    align-self: stretch;
+    min-height: 500px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 16px rgba(13, 38, 46, 0.07);
+}
+
+.booking-details__title, .payment-summary__title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.booking-details__list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-divider);
+}
+
+.booking-details__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 28px;
+}
+
+.booking-details__label {
+    flex: 0 1 40%;
+    color: var(--color-muted);
+}
+
+.booking-details__value {
+    flex: 0 1 60%;
+    min-width: 0;
+    text-align: right;
+    overflow-wrap: break-word;
+}
+
+.booking-details__value--emphasis {
+    font-weight: 600;
+}
+
+.booking-details__link, .manager-card__phone {
+    color: var(--color-brand);
+}
+
+.payment-summary {
+    grid-area: payment;
+    min-height: 315px;
+    padding: 22px 24px;
+}
+
+.payment-summary__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 30px;
+}
+
+.payment-summary__status {
+    color: var(--color-warning);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.payment-summary__marker {
+    margin-right: 4px;
+}
+
+.payment-summary__metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.payment-summary__metric {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    min-width: 0;
+    min-height: 64px;
+    padding: 4px 16px;
+    border-radius: 8px;
+    background: var(--color-page);
+}
+
+.payment-summary__label {
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+.payment-summary__value {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.payment-summary__metric--confirmed .payment-summary__value {
+    color: var(--color-success);
+}
+
+.payment-summary__metric--remaining {
+    background: rgba(235, 69, 29, 0.08);
+}
+
+.check-in {
+    display: flex;
+    grid-area: check-in;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 174px;
+    padding: 22px 28px;
+    border: 1px solid rgba(40, 152, 164, 0.28);
+    border-radius: var(--card-radius);
+    background: rgba(40, 152, 164, 0.06);
+}
+
+.check-in__lock {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.check-in__description {
+    color: var(--color-secondary);
+    line-height: 20px;
+}
+
+.manager-card {
+    grid-area: manager;
+    min-height: 160px;
+    padding: 22px 24px;
+}
+
+.manager-card__contact {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.manager-card__avatar {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(40, 152, 164, 0.12);
+    color: var(--color-brand);
+    font-weight: 700;
+}
+
+.manager-card__info {
+    min-width: 0;
+    font-size: 15px;
+}
+
+.manager-card__name {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.manager-card__phone {
+    display: inline-block;
+}
+
+.manager-card__description {
+    margin-top: 14px;
+    color: var(--color-muted);
+    font-size: 12px;
+}
+
+/* Подвал */
+.site-footer {
+    background: var(--color-text);
+    color: #fff;
+}
+
+.site-footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 120px;
+    padding-block: 24px;
+}
+
+.site-footer__name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.site-footer__copyright {
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 12px;
+}
+
+.site-footer__links {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13px;
+}
+
+.site-footer__item:not(:last-child)::after {
+    margin-left: 8px;
+    content: "•";
+}
+
+.site-footer__link {
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+.site-footer a:focus, .site-footer button:focus {
+    outline-color: #fff;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media (hover: hover) {
+    .account-nav__link:hover {
+        background: rgba(255, 255, 255, 0.18);
+    }
+
+    .booking-details__link:hover, .manager-card__phone:hover,
+    .site-header__phone:hover, .site-footer__link:hover, .account-nav__logout:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .mobile-nav__link:hover {
+        background: rgba(40, 152, 164, 0.08);
+    }
+}
+
+@media (max-width: 1279px) {
+    :root {
+        --section-gap: clamp(16px, 1.875vw, 24px);
+    }
+
+    .account-nav__link {
+        padding-inline: clamp(14px, 2.18vw, 28px);
+    }
+
+    .booking-details, .check-in {
+        padding-inline: clamp(20px, 2.18vw, 28px);
+    }
+
+    .payment-summary, .manager-card {
+        padding-inline: 20px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .booking__cards {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "details details"
+            "payment check-in"
+            "payment manager";
+    }
+
+    .booking-progress__list {
+        flex-wrap: wrap;
+    }
+
+    .booking-progress__step {
+        flex-basis: calc(50% - 8px);
+    }
+
+    .booking-details {
+        min-height: 0;
+    }
+
+    .account-nav__link {
+        padding-inline: 14px;
+        font-size: 14px;
+    }
+
+    .site-footer__container {
+        align-items: flex-start;
+    }
+
+    .site-footer__brand, .site-footer__links {
+        flex: 1 1 0;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --section-gap: 16px;
+    }
+
+    html {
+        scroll-padding-bottom: 100px;
+    }
+
+    .wrapper {
+        padding-bottom: 76px;
+        padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .site-header__container {
+        min-height: 88px;
+        padding-block: 18px;
+    }
+
+    .site-header__contacts, .account-nav {
+        display: none;
+    }
+
+    .booking {
+        padding-block: 24px 32px;
+    }
+
+    .booking__title {
+        font-size: 24px;
+    }
+
+    .booking-notice {
+        min-height: 92px;
+    }
+
+    .booking-progress {
+        padding: 20px;
+    }
+
+    .booking-progress__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .booking-progress__step {
+        flex: 0 1 auto;
+        min-height: 56px;
+    }
+
+    .booking__cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .booking__cards > section {
+        width: 100%;
+        min-height: 0;
+        padding: 20px;
+    }
+
+    .booking-details__title {
+        font-size: 18px;
+    }
+
+    .booking-details__list {
+        gap: 12px;
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .booking-details__row {
+        min-height: 40px;
+        font-size: 14px;
+    }
+
+    .payment-summary__metrics {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 14px;
+    }
+
+    .payment-summary__metric {
+        flex: 1 1 0;
+        gap: 4px;
+        min-height: 84px;
+        padding: 10px;
+    }
+
+    .payment-summary__label {
+        font-size: 11px;
+    }
+
+    .payment-summary__value {
+        font-size: 18px;
+        white-space: nowrap;
+    }
+
+    .check-in__description {
+        font-size: 14px;
+    }
+
+    .site-footer__container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .site-footer__brand, .site-footer__links {
+        flex: 0 1 auto;
+    }
+
+    .site-footer__links {
+        gap: 0 8px;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        display: block;
+        padding: 7px;
+        padding-bottom: calc(7px + env(safe-area-inset-bottom, 0px));
+        border: 1px solid var(--color-border);
+        background: var(--color-card);
+    }
+
+    .mobile-nav__list {
+        display: flex;
+    }
+
+    .mobile-nav__item {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .mobile-nav__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        width: 100%;
+        min-height: 60px;
+        padding: 6px 4px;
+        border-radius: 10px;
+        color: #616b7a;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .mobile-nav__link--active {
+        background: rgba(40, 152, 164, 0.12);
+        color: var(--color-brand);
+        font-weight: 600;
+    }
+
+    .mobile-nav__icon {
+        flex-shrink: 0;
+    }
+
+    .mobile-nav__link:focus {
+        outline-offset: -3px;
+    }
+}
+
+@media (max-width: 479px) {
+    .brand__name {
+        font-size: clamp(20px, 6.15vw, 24px);
+    }
+
+    .brand__description {
+        font-size: clamp(10px, 3.07vw, 12px);
+    }
+
+    .booking-details__label {
+        flex-basis: 39%;
+    }
+
+    .booking-details__value {
+        flex-basis: 61%;
+    }
+
+    .payment-summary__metric {
+        padding-inline: clamp(5px, 2.56vw, 10px);
+    }
+
+    .payment-summary__value {
+        font-size: clamp(15px, 4.61vw, 18px);
+    }
+
+    .mobile-nav__label {
+        font-size: clamp(10px, 3.07vw, 12px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

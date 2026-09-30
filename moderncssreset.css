@@ -1,0 +1,111 @@
+/* 
+RESET - подключаем первым
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css"> 
+*/
+
+
+/* =========================
+   Modern CSS Reset
+========================= */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins */
+* {
+  margin: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* Media defaults */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form elements inherit fonts */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Buttons reset */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+  padding: 0; /*Добавленно мной */
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Textarea resize */
+textarea {
+  resize: vertical;
+}
+
+/* Root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
