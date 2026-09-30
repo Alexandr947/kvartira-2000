@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Личный кабинет гостя Квартира-2000: информация о бронировании, оплате и заселении.">
+    <title>Информация о бронировании — Квартира-2000</title>
+    <link rel="stylesheet" href="assets/css/moderncssreset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+    <div class="wrapper">
+        <header class="site-header">
+            <div class="container site-header__container">
+                <a class="brand" href="#booking" aria-label="Квартира-2000 — информация о бронировании">
+                    <img class="brand__logo" src="assets/img/logo.png" alt="" width="52" height="52">
+                    <span class="brand__text">
+                        <span class="brand__name">Квартира-2000</span>
+                        <span class="brand__description">Посуточная аренда квартир в Москве</span>
+                    </span>
+                </a>
+
+                <div class="site-header__contacts">
+                    <a class="site-header__phone" href="tel:+74993907091">+7 (499) 390-70-91</a>
+                    <p class="site-header__hours">Ежедневно 10:00–23:00</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Другие разделы кабинета подключаются при реализации их страниц. -->
+        <nav class="account-nav" aria-label="Разделы личного кабинета">
+            <div class="container account-nav__container">
+                <ul class="account-nav__list">
+                    <li class="account-nav__item">
+                        <a class="account-nav__link account-nav__link--active" href="#booking" aria-current="page">
+                            <span class="account-nav__marker" aria-hidden="true">●</span>
+                            Инфо
+                        </a>
+                    </li>
+                    <li class="account-nav__item">
+                        <a class="account-nav__link" href="#registration" data-action="registration">Регистрация</a>
+                    </li>
+                    <li class="account-nav__item">
+                        <a class="account-nav__link" href="#stay-rules" data-action="stay-rules">Правила проживания</a>
+                    </li>
+                    <li class="account-nav__item">
+                        <a class="account-nav__link" href="#payment">Оплата</a>
+                    </li>
+                    <li class="account-nav__item">
+                        <a class="account-nav__link" href="#check-out">Выезд</a>
+                    </li>
+                </ul>
+                <button class="account-nav__logout" type="button" data-action="logout">Выйти</button>
+            </div>
+        </nav>
+
+        <main class="main" id="main-content" tabindex="-1">
+            <section class="booking" id="booking" aria-labelledby="booking-title">
+                <div class="container booking__container">
+                    <header class="booking__header">
+                        <h1 class="booking__title" id="booking-title">Информация о бронировании</h1>
+                        <p class="booking__description">Все данные для заезда и оплаты в одном месте</p>
+                    </header>
+
+                    <div class="booking-notice">
+                        <p class="booking-notice__text">Следующий шаг: пройдите регистрацию — это откроет оплату и данные для заселения.</p>
+                    </div>
+
+                    <section class="booking-progress" aria-labelledby="booking-progress-title">
+                        <h2 class="booking-progress__title" id="booking-progress-title">Статус бронирования</h2>
+                        <ol class="booking-progress__list">
+                            <li class="booking-progress__step booking-progress__step--completed">
+                                <span class="booking-progress__number" aria-hidden="true">✓</span>
+                                <div class="booking-progress__copy">
+                                    <h3 class="booking-progress__name">Бронь создана</h3>
+                                    <p class="booking-progress__status">Готово</p>
+                                </div>
+                            </li>
+                            <li class="booking-progress__step" aria-current="step">
+                                <span class="booking-progress__number" aria-hidden="true">2</span>
+                                <div class="booking-progress__copy">
+                                    <h3 class="booking-progress__name">Регистрация</h3>
+                                    <p class="booking-progress__status">Пройдите регистрацию</p>
+                                </div>
+                            </li>
+                            <li class="booking-progress__step">
+                                <span class="booking-progress__number" aria-hidden="true">3</span>
+                                <div class="booking-progress__copy">
+                                    <h3 class="booking-progress__name">Оплата и залог</h3>
+                                    <p class="booking-progress__status">Ожидает регистрации</p>
+                                </div>
+                            </li>
+                            <li class="booking-progress__step">
+                                <span class="booking-progress__number" aria-hidden="true">4</span>
+                                <div class="booking-progress__copy">
+                                    <h3 class="booking-progress__name">Данные для заселения</h3>
+                                    <p class="booking-progress__status">Откроются после проверки</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </section>
+
+                    <!-- Порядок содержимого соответствует мобильному макету и чтению с клавиатуры. -->
+                    <div class="booking__cards">
+                        <section class="booking-details" aria-labelledby="booking-details-title">
+                            <h2 class="booking-details__title" id="booking-details-title">Детали бронирования</h2>
+                            <dl class="booking-details__list">
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Номер брони</dt>
+                                    <dd class="booking-details__value">60277</dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Гость</dt>
+                                    <dd class="booking-details__value">Александр Иванов</dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Адрес квартиры</dt>
+                                    <dd class="booking-details__value booking-details__value--emphasis">Москва, ул. Заморенова, 9с2</dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Заезд</dt>
+                                    <dd class="booking-details__value">12 октября, после <time datetime="14:00">14:00</time></dd>
+                                </div>
+                                <div class="booking-details__row" id="check-out">
+                                    <dt class="booking-details__label">Выезд</dt>
+                                    <dd class="booking-details__value">17 октября, до <time datetime="12:00">12:00</time></dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Ближайшее метро</dt>
+                                    <dd class="booking-details__value">Краснопресненская</dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Как добраться</dt>
+                                    <dd class="booking-details__value">
+                                        <a class="booking-details__link" href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Заморенова%2C%209с2" target="_blank" rel="noopener noreferrer" aria-label="Открыть адрес квартиры в Яндекс.Картах, в новой вкладке">Открыть Яндекс.Карты</a>
+                                    </dd>
+                                </div>
+                                <div class="booking-details__row">
+                                    <dt class="booking-details__label">Гости</dt>
+                                    <dd class="booking-details__value">2 взрослых</dd>
+                                </div>
+                            </dl>
+                        </section>
+
+                        <section class="payment-summary" id="payment" aria-labelledby="payment-title">
+                            <header class="payment-summary__header">
+                                <h2 class="payment-summary__title" id="payment-title">Оплата</h2>
+                                <p class="payment-summary__status">
+                                    <span class="payment-summary__marker" aria-hidden="true">●</span>
+                                    Частично оплачено
+                                </p>
+                            </header>
+                            <dl class="payment-summary__metrics">
+                                <div class="payment-summary__metric payment-summary__metric--confirmed">
+                                    <dt class="payment-summary__label">Оплата на Суточно.ру</dt>
+                                    <dd class="payment-summary__value">ОК</dd>
+                                </div>
+                                <div class="payment-summary__metric">
+                                    <dt class="payment-summary__label">Оплачено нам</dt>
+                                    <dd class="payment-summary__value">12 500 ₽</dd>
+                                </div>
+                                <div class="payment-summary__metric payment-summary__metric--remaining">
+                                    <dt class="payment-summary__label">Остаток</dt>
+                                    <dd class="payment-summary__value">20 000 ₽</dd>
+                                </div>
+                            </dl>
+                        </section>
+
+                        <section class="check-in" aria-labelledby="check-in-title">
+                            <h2 class="check-in__title" id="check-in-title">Данные для заселения</h2>
+                            <span class="check-in__lock" aria-hidden="true">🔒</span>
+                            <p class="check-in__description">Подъезд, этаж, код двери, номер квартиры и местонахождение ключей появятся после проверки паспорта, и внесения залога.</p>
+                        </section>
+
+                        <section class="manager-card" id="help" aria-labelledby="manager-title">
+                            <h2 class="manager-card__title" id="manager-title">Менеджер по заселению</h2>
+                            <div class="manager-card__contact">
+                                <span class="manager-card__avatar" aria-hidden="true">ЕК</span>
+                                <div class="manager-card__info">
+                                    <p class="manager-card__name">Елена Кузнецова</p>
+                                    <a class="manager-card__phone" href="tel:+79165551820">+7 (916) 555-18-20</a>
+                                </div>
+                            </div>
+                            <p class="manager-card__description">Свяжитесь с менеджером, если появятся вопросы по заезду</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container site-footer__container">
+                <div class="site-footer__brand">
+                    <p class="site-footer__name">Квартира-2000</p>
+                    <p class="site-footer__copyright">© Посуточная аренда квартир в Москве</p>
+                </div>
+                <ul class="site-footer__links">
+                    <li class="site-footer__item"><a class="site-footer__link" href="#help">Помощь</a></li>
+                    <li class="site-footer__item"><button class="site-footer__link" type="button" data-action="privacy-policy">Политика конфиденциальности</button></li>
+                    <li class="site-footer__item"><a class="site-footer__link" href="mailto:info@kvartira-2000.ru">info@kvartira-2000.ru</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <nav class="mobile-nav" aria-label="Разделы личного кабинета, мобильное меню">
+            <ul class="mobile-nav__list">
+                <li class="mobile-nav__item">
+                    <a class="mobile-nav__link mobile-nav__link--active" href="#booking" aria-current="page">
+                        <img class="mobile-nav__icon" src="assets/img/icon-info.svg" alt="" width="24" height="24">
+                        <span class="mobile-nav__label">Инфо</span>
+                    </a>
+                </li>
+                <li class="mobile-nav__item">
+                    <button class="mobile-nav__link" type="button" data-action="registration">
+                        <img class="mobile-nav__icon" src="assets/img/icon-registration.svg" alt="" width="24" height="24">
+                        <span class="mobile-nav__label">Регистрация</span>
+                    </button>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="mobile-nav__link" href="#payment">
+                        <img class="mobile-nav__icon" src="assets/img/icon-payment.svg" alt="" width="24" height="24">
+                        <span class="mobile-nav__label">Оплата</span>
+                    </a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a class="mobile-nav__link" href="#check-out">
+                        <img class="mobile-nav__icon" src="assets/img/icon-check-out.svg" alt="" width="24" height="24">
+                        <span class="mobile-nav__label">Выезд</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
